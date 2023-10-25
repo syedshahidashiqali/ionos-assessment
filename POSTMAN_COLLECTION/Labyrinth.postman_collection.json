@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "c8e450f3-93af-4797-8242-55ec66759b24",
+		"name": "Labyrinth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30298375"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"User 2\",\r\n    \"email\": \"user2@abc.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/signup",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user1@abc.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Empty Labyrinth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{test_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/labyrinth",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"labyrinth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SET block type using coords",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{test_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/labyrinth/:id/playfield/:x/:y/:type",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"labyrinth",
+						":id",
+						"playfield",
+						":x",
+						":y",
+						":type"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6537b63e8e363353a09cd174"
+						},
+						{
+							"key": "x",
+							"value": "3"
+						},
+						{
+							"key": "y",
+							"value": "3"
+						},
+						{
+							"key": "type",
+							"value": "filled"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SET START block using coords",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{test_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/labyrinth/:id/start/:x/:y",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"labyrinth",
+						":id",
+						"start",
+						":x",
+						":y"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "653972265d56be6e8885d9ec"
+						},
+						{
+							"key": "x",
+							"value": "0"
+						},
+						{
+							"key": "y",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SET END block using coords",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{test_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/labyrinth/:id/end/:x/:y",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"labyrinth",
+						":id",
+						"end",
+						":x",
+						":y"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "653972265d56be6e8885d9ec"
+						},
+						{
+							"key": "x",
+							"value": "4"
+						},
+						{
+							"key": "y",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all Labyrinths",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{test_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/labyrinth",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"labyrinth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Labyrinth by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{test_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/labyrinth/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"labyrinth",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "653972265d56be6e8885d9ec"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Solution of Labyrinth by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{test_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/labyrinth/:id/solution",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"labyrinth",
+						":id",
+						"solution"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "653972265d56be6e8885d9ec"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users/all",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

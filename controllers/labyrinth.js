@@ -7,7 +7,7 @@ const Labyrinth = require("../models/Labyrinth");
 const Cell = require("../models/Cell");
 const { Types } = require("mongoose");
 const { convertCoordinatesToDirections } = require("../services/generate_directions_using_coords");
-const { findPath } = require("../services/generate_path_using_BFS");
+const { findPathUsingDFS, findPathUsingBFS } = require("../services/generate_path");
 
 // return all the labyrinths for the current user
 exports.allLabyrinths = async (req, res) => {
@@ -205,7 +205,7 @@ exports.solveLabyrinth = async (req, res) => {
     }
 
     const visited = new Set();
-    const path = await findPath(labyrinth, startCell, visited);
+    const path = await findPathUsingDFS(labyrinth, startCell, visited);
 
     if (path) {
       // Extract path coordinates and the directions

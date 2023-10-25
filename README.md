@@ -11,6 +11,11 @@
 
 ### REST APIs provide the following endpoints:
 
+#### Base API Endpoint
+```
+/api
+```
+
 #### Return all the labyrinths for the current user:
 
 Structure:

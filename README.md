@@ -4,8 +4,8 @@
 
 ## Try My Docker Image
 ```
-docker run -p 3000:3000 -d syedshahidashiqali/ionos-api-server
-
+1. docker pull syedshahidashiqali/ionos-api-server
+2. docker run -p 5000:5000 --name any-container-name syedshahidashiqali/ionos-api-server:latest
 ```
 ## Endpoints
 

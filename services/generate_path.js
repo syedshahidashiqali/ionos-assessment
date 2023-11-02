@@ -25,8 +25,7 @@ const findPathUsingDFS = async (labyrinth, currentCell, visited) => {
     const nextCell = labyrinth.cells.find((cell) => cell.x === nextX && cell.y === nextY);
 
     if (nextCell && nextCell.type === "empty" && !visited.has(nextCell._id)) {
-      const path = await findPath(labyrinth, nextCell, visited);
-      console.log("29> path", path);
+      const path = await findPathUsingDFS(labyrinth, nextCell, visited);
       if (path) {
         return [currentCell, ...path];
       }
